@@ -10,7 +10,10 @@ import { getMainDefinition } from "@apollo/client/utilities";
 export const getGraphqlClient = () => {
 
     const wsLink = new WebSocketLink({
-        uri: "wss://perfect-redbird-87.hasura.app/v1/graphql"
+        uri: "wss://perfect-redbird-87.hasura.app/v1/graphql",
+        options: {
+            reconnect: true
+        }
     });
     const httpLink = new HttpLink({
       uri: 'https://perfect-redbird-87.hasura.app/v1/graphql'
