@@ -17,7 +17,7 @@ export const Cat = ({catId}) => {
     }
     return (
         <div>
-            <img src={catImgSrc} height="400px" width="400px" alt="cute random cat pic"></img>
+            <img src={catImgSrc} style={{maxWidth: "600px"}} alt="cute random cat pic"></img>
         </div>
     )
 }
