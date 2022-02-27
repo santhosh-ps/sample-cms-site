@@ -1,11 +1,13 @@
 import React from 'react';
 import gql from 'graphql-tag';
 import { useSubscription } from '@apollo/client';
+import { Cat } from './Cat';
 
 const SUBSCRIBE_WEBCONF = gql`
   subscription MyQuery {
     websites {
         styles
+        content
     }
   }
 `;
@@ -18,6 +20,7 @@ function Container() {
   return (
     <div style={{ ...(data.websites[0]?.styles || {})}}>
       <h1> The Sample Container</h1>
+      <Cat catId={data.websites[0]?.content?.catId}/>
     </div>
   );
 }
